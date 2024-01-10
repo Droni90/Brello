@@ -1,12 +1,10 @@
 name: Checking CI
 
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
 on:
   pull_request:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   code:
