@@ -1,7 +1,20 @@
 import ReactDOM from "react-dom/client";
+import { Provider } from "effector-react";
 
-import  { App }  from "@/app";
+import { App } from "@/app";
+import { appStarted } from "./shared/init";
+import { allSettled, fork } from "effector";
 
 const root = document.getElementById("root") as HTMLElement;
 
-ReactDOM.createRoot(root).render(<App />);
+const scope = fork();
+
+allSettled(appStarted, { scope }).catch(() =>
+  console.warn("Failed to start the app"),
+);
+
+ReactDOM.createRoot(root).render(
+  <Provider value={scope}>
+    <App />
+  </Provider>,
+);
