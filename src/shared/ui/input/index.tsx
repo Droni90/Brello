@@ -14,7 +14,6 @@ export interface Props<T extends string>
   type?: "text" | "email" | "search";
   hint?: string;
   variant?: "sm" | "md";
-  hasError?: boolean;
   error?: string;
 }
 
@@ -27,7 +26,6 @@ export const Input = <T extends string>({
   hint,
   type = "text",
   variant = "sm",
-  hasError = false,
   error,
   ...rest
 }: Props<T>) => {
@@ -43,13 +41,13 @@ export const Input = <T extends string>({
         type={type}
         name={name}
         className={cn(styles.root, styles[`variant-${variant}`], {
-          [styles.hasError]: hasError,
+          [styles.hasError]: Boolean(error),
         })}
         value={value}
         onChange={handleChange}
         {...rest}
       />
-      {hasError ? (
+      {error ? (
         <span className={styles.error}>{error}</span>
       ) : (
         hint && <span className={styles.hint}>{hint}</span>
@@ -64,7 +62,7 @@ export const Input = <T extends string>({
           styles.root,
           styles[`variant-${variant}`],
           {
-            [styles.hasError]: hasError,
+            [styles.hasError]: Boolean(error),
           },
           className,
         )}
@@ -72,7 +70,7 @@ export const Input = <T extends string>({
         onChange={handleChange}
         {...rest}
       />
-      {hasError ? (
+      {error ? (
         <span className={styles.error}>{error}</span>
       ) : (
         hint && <span className={styles.hint}>{hint}</span>

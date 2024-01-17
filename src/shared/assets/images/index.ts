@@ -1,3 +1,1 @@
-import ImageLogomark from "./logomark.svg";
-
-export { ImageLogomark };
+export { default as ImageLogomark } from "./logomark.svg";

@@ -8,6 +8,7 @@ import { forwardRef } from "react";
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg" | "xl" | "2xl";
   variant?: "primary" | "secondary-gray" | "link-gray" | "link-color";
+  loading?: boolean;
   isDestructive?: boolean;
   children?: ReactNode;
 }
@@ -20,6 +21,8 @@ export const Button = forwardRef<Ref, Props>(
       className,
       size = "lg",
       variant = "primary",
+      loading = false,
+      disabled,
       isDestructive = false,
       onClick,
       children,
@@ -38,8 +41,15 @@ export const Button = forwardRef<Ref, Props>(
     );
 
     return (
-      <button ref={ref} className={classList} onClick={onClick} {...rest}>
-        {children}
+      <button
+        ref={ref}
+        disabled={loading ?? disabled}
+        className={classList}
+        onClick={loading ? undefined : onClick}
+        aria-disabled={loading ?? disabled}
+        {...rest}
+      >
+        {loading ? "Loading…" : children}
       </button>
     );
   },

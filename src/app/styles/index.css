@@ -12,6 +12,7 @@
   --color-base-white: #fff;
 
   /* Primary */
+  --color-primary-50: #eff4ff;
   --color-primary-100: #d1e0ff;
   --color-primary-200: #b2ddff;
   --color-primary-300: #84adff;
@@ -31,9 +32,11 @@
   --color-gray-900: #101828;
 
   /* Error */
+  --color-error-50: #fef3f2;
   --color-error-100: #fee4e2;
   --color-error-300: #fda29b;
   --color-error-500: #f04438;
+  --color-error-600: #d92d20;
 
   /* Display xs */
   --font-display-xs-semibold: 600 24px/32px var(--font-sans);
@@ -48,6 +51,7 @@
 
   /* Text md */
   --font-text-md-regular: 400 16px/24px var(--font-sans);
+  --font-text-md-medium: 500 16px/24px var(--font-sans);
   --font-text-md-semibold: 600 16px/24px var(--font-sans);
 
   /* Text sm */

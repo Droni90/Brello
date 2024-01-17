@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "effector-react";
 
-import { App } from "@/app";
+import { Application } from "@/app";
 import { appStarted } from "./shared/init";
 import { allSettled, fork } from "effector";
 
@@ -15,6 +15,6 @@ allSettled(appStarted, { scope }).catch(() =>
 
 ReactDOM.createRoot(root).render(
   <Provider value={scope}>
-    <App />
+    <Application />
   </Provider>,
 );

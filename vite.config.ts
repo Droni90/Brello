@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       : "[local]-[hash:base64:5]";
 
   return {
-    plugins: [react(), svgr()],
+    plugins: [react({ babel: { babelrc: true } }), svgr()],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
